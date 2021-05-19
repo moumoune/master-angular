@@ -1,0 +1,3 @@
+<alert *ngIf="(toastr$ | async) as toastr" (click)="closeToastr()" type="{{ toastr.category }}">
+  {{ toastr.message }}
+ </alert>

@@ -1,0 +1,8 @@
+<div class="row">
+  <al-planning-workday-item
+  *ngFor="let workday of workdays"
+  [workday]="workday"
+  (workdayRemoved)="onWorkdayRemoved(workday)"
+  class="col-md-4 d-flex">
+</al-planning-workday-item>
+ </div>

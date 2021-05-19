@@ -1,0 +1,20 @@
+<div [formGroup]="workdayForm">
+  <div formArrayName="tasks">
+    <al-workday-form-tasks-item
+      *ngFor="let task of taskControlList; 
+      index as i;
+      first as isFirst;
+      last as isLast;"
+      [index]="i"
+      [isFirst]="isFirst"
+      [isLast]="isLast"
+      [task]="task"
+      (removedTask)="onRemovedTask($event)">
+    </al-workday-form-tasks-item>
+  </div>
+   <!-- Ajoutez notre bouton d’ajout d’une tâche : -->
+  <div class="text-center mt-5">
+    <al-workday-form-tasks-add (addedTask)="onAddedTask()">
+    </al-workday-form-tasks-add>
+  </div>
+ </div>

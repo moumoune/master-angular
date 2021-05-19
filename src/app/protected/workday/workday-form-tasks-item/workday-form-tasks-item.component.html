@@ -1,0 +1,23 @@
+<div [formGroup]="task" class="form-group row">
+  <legend *ngIf="isFirst">Tâche la plus importante</legend>
+  <legend *ngIf="index === 1" class="mt-3">Tâches de seconde importance</legend>
+  <legend *ngIf="index === 3" class="mt-3">Tâches additionnelles</legend>
+  <label class="col-sm-1 col-form-label px-0">{{index + 1}}.</label>
+  <div class="col-sm-6 px-0">
+   <input formControlName="title" type="text" class="form-control">
+  </div>
+  <div class="col-sm-5 align-self-center">
+    <div class="btn-group btn-group-sm" dropdown>
+      <button id="button-basic" dropdownToggle type="button" class="btn btn-default dropdown-toggle" aria-controls="dropdown-basic">
+        {{ todo.value }} <span class="caret"></span>
+      </button>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+        <li *ngFor="let pomodoro of [1,2,3,4,5]" role="menuitem">
+          <a class="dropdown-item" (click)="selectTodo(pomodoro)">{{ pomodoro }}</a>
+        </li>
+      </ul>
+      <i *ngIf="isLast && !isFirst" (click)="removeTask(index)" class="material-icons md-18 md-grey">clear</i>
+    </div>
+
+   </div>
+ </div>
